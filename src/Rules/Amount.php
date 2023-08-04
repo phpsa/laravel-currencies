@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Rules;
+namespace Phpsa\LaravelCurrencies\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
@@ -22,9 +22,9 @@ class Amount implements Rule
     protected $message;
 
     /**
-     * @param  float  $min
-     * @param  float  $max
-     * @return \Makeable\LaravelCurrencies\Rules\Amount
+     * @param  float $min
+     * @param  float $max
+     * @return \Phpsa\LaravelCurrencies\Rules\Amount
      */
     public function between($min, $max)
     {
@@ -32,7 +32,7 @@ class Amount implements Rule
     }
 
     /**
-     * @param  float  $min
+     * @param  float $min
      * @return $this
      */
     public function min($min)
@@ -43,7 +43,7 @@ class Amount implements Rule
     }
 
     /**
-     * @param  float  $max
+     * @param  float $max
      * @return $this
      */
     public function max($max)
@@ -56,14 +56,14 @@ class Amount implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
+     * @param  string $attribute
      * @param  mixed  $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
         try {
-            if (is_null($amount = \Makeable\LaravelCurrencies\Amount::parse($value))) {
+            if (is_null($amount = \Phpsa\LaravelCurrencies\Amount::parse($value))) {
                 return false;
             }
 
@@ -88,7 +88,7 @@ class Amount implements Rule
     /**
      * Get the validation error message.
      *
-     * @return string|array
+     * @return string
      */
     public function message()
     {

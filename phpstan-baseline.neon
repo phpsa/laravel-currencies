@@ -1,0 +1,316 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method convertTo\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Class Phpsa\\\\LaravelCurrencies\\\\Amount implements generic interface Illuminate\\\\Contracts\\\\Support\\\\Arrayable but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:baseAmountToLocal\\(\\) has parameter \\$amount with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:castUsing\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:castUsing\\(\\) return type with generic interface Illuminate\\\\Contracts\\\\Database\\\\Eloquent\\\\CastsAttributes does not specify its types\\: TGet, TSet$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:divide\\(\\) has parameter \\$factor with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:ensureValidCurrency\\(\\) should return Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract but returns mixed\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:formatUsing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:fromArray\\(\\) has parameter \\$exported with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:fromArray\\(\\) should return Phpsa\\\\LaravelCurrencies\\\\Amount\\|null but empty return statement found\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:fromCents\\(\\) has parameter \\$amount with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:localAmountToDefault\\(\\) has parameter \\$amount with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:multiply\\(\\) has parameter \\$factor with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:parse\\(\\) should return static\\(Phpsa\\\\LaravelCurrencies\\\\Amount\\)\\|null but returns Phpsa\\\\LaravelCurrencies\\\\Amount\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:parse\\(\\) should return static\\(Phpsa\\\\LaravelCurrencies\\\\Amount\\)\\|null but returns Phpsa\\\\LaravelCurrencies\\\\Amount\\|null\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:percent\\(\\) has parameter \\$percentage with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:requiresProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:requiresProperties\\(\\) has parameter \\$array with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:requiresProperties\\(\\) has parameter \\$keys with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:round\\(\\) has parameter \\$decimals with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:setBaseCurrency\\(\\) should return Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract but returns Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract\\|string\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:setDefaultCurrency\\(\\) should return Phpsa\\\\LaravelCurrencies\\\\Currency but returns Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract\\|null\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:sum\\(\\) has parameter \\$items with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:valueRetriever\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#1 \\$amount of class Phpsa\\\\LaravelCurrencies\\\\Amount constructor expects float, float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#1 \\$currency of static method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:normalizeCurrency\\(\\) expects Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#2 \\$decimals of function number_format expects int, mixed given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#2 \\$precision of function round expects int, mixed given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#3 \\$decimal_separator of function number_format expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Parameter \\#4 \\$thousands_separator of function number_format expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract\\|string and null will always evaluate to false\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 11
+			path: src/Amount.php
+
+		-
+			message: "#^Variable \\$decimals on left side of \\?\\? always exists and is always null\\.$#"
+			count: 1
+			path: src/Amount.php
+
+		-
+			message: "#^Class Phpsa\\\\LaravelCurrencies\\\\AmountCast implements generic interface Illuminate\\\\Contracts\\\\Database\\\\Eloquent\\\\CastsAttributes but does not specify its types\\: TGet, TSet$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:defaultStoredAs\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:get\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:resolveModelCurrency\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:set\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Parameter \\#1 \\$amount of class Phpsa\\\\LaravelCurrencies\\\\Amount constructor expects float, mixed given\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Parameter \\#2 \\$defaultCurrency of static method Phpsa\\\\LaravelCurrencies\\\\Amount\\:\\:parse\\(\\) expects null, Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract given\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:\\$amountField has no type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:\\$currencyField has no type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:\\$defaultAmountField has no type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:\\$defaultCurrencyField has no type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\AmountCast\\:\\:\\$nullable has no type specified\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between bool\\|null and 'false' will always evaluate to false\\.$#"
+			count: 1
+			path: src/AmountCast.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\CurrencyContract\\:\\:fromCode\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/Contracts/CurrencyContract.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Contracts\\\\ResolvesModelCurrency\\:\\:resolveModelCurrency\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Contracts/ResolvesModelCurrency.php
+
+		-
+			message: "#^Cannot access offset 'validator' on Illuminate\\\\Contracts\\\\Foundation\\\\Application\\.$#"
+			count: 1
+			path: src/CurrenciesServiceProvider.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\CurrenciesServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/CurrenciesServiceProvider.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Support\\\\HigherOrderCollectionProxy\\<string, Phpsa\\\\LaravelCurrencies\\\\Currency, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, Phpsa\\\\LaravelCurrencies\\\\Currency\\>\\>\\:\\:\\$code\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Access to an undefined property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$code\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Access to an undefined property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$exchange_rate\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:disableCache\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Method Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:flushCache\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^PHPDoc type array of property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$guarded is not covariant with PHPDoc type array\\<string\\>\\|bool of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$guarded\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$cachedModels with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\Currency\\:\\:\\$guarded type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Currency.php
+
+		-
+			message: "#^Property Phpsa\\\\LaravelCurrencies\\\\Exceptions\\\\MissingBaseCurrencyException\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/Exceptions/MissingBaseCurrencyException.php

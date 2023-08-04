@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Exceptions;
+namespace Phpsa\LaravelCurrencies\Exceptions;
 
 class MissingBaseCurrencyException extends \Exception
 {

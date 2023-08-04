@@ -1,0 +1,106 @@
+name: laravel-currencies
+recipe: lamp
+config:
+  via: "cli"
+  php: "8.2"
+
+services:
+  php81:
+    type: php:8.1
+    via: "cli"
+
+  php80:
+    type: php:8.0
+    via: "cli"
+
+tooling:
+  cleanup:
+    cmd: rm -rf vendor composer.lock
+
+  setup81:
+    service: php81
+    cmd: rm -rf vendor composer.lock && composer install
+
+  setup80:
+    service: php80
+    cmd: rm -rf vendor composer.lock && composer install
+
+  setup82:
+    service: appserver
+    cmd: rm -rf vendor composer.lock && composer install
+
+  test82:
+    service: appserver
+    cmd: composer phpunit
+  test81:
+    service: php81
+    cmd: composer phpunit
+  test80:
+    service: php80
+    cmd: composer phpunit
+
+  stan82:
+    service: appserver
+    cmd: composer phpstan
+  stan81:
+    service: php81
+    cmd: composer phpstan
+  stan80:
+    service: php80
+    cmd: composer phpstan
+
+  all82:
+    service: appserver
+    cmd:
+      - rm -rf vendor composer.lock && composer install
+      - composer phpunit
+      - composer phpstan
+
+  all81:
+    service: php81
+    cmd:
+      - rm -rf vendor composer.lock && composer install
+      - composer phpunit
+      - composer phpstan
+
+  all80:
+    service: php80
+    cmd:
+      - rm -rf vendor composer.lock && composer install
+      - composer phpunit
+      - composer phpstan
+
+  lara8:
+    service: php81
+    cmd:
+      - rm -rf vendor composer.lock
+      - cp composer.json composer.json.bak
+      - composer require laravel/laravel:^8
+      - composer install
+      - composer phpunit
+      - composer phpstan
+      # this is for removing a specific version
+      - composer remove laravel/laravel
+
+  lara9:
+    service: php81
+    cmd:
+      - rm -rf vendor composer.lock
+      - composer require laravel/laravel:^9
+      - composer install
+      - composer phpunit
+      - composer phpstan
+      # this is for removing a specific version
+      - composer remove laravel/laravel
+
+  lara10:
+    service: appserver
+    cmd:
+      - rm -rf vendor composer.lock
+      - cp composer.json composer.json.bak
+      - composer require laravel/laravel:^10 --dev
+      - composer install
+      - composer phpunit
+      - composer phpstan
+      # this is for removing a specific version
+      - composer remove laravel/laravel

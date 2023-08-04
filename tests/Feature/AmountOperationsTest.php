@@ -1,10 +1,10 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests\Feature;
+namespace Phpsa\LaravelCurrencies\Tests\Feature;
 
-use Makeable\LaravelCurrencies\Amount;
-use Makeable\LaravelCurrencies\Tests\TestCase;
-use Makeable\LaravelCurrencies\Tests\TestCurrency as Currency;
+use Phpsa\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\Tests\TestCase;
+use Phpsa\LaravelCurrencies\Tests\TestCurrency as Currency;
 
 class AmountOperationsTest extends TestCase
 {
@@ -28,42 +28,52 @@ class AmountOperationsTest extends TestCase
 
     public function test_it_can_sum_an_array_of_amounts()
     {
-        $this->assertEquals(350, Amount::sum([
-            100, // Raw values will be converted to amounts of default currency
-            $this->amount(200),
-            $this->amount(50),
-        ])->get());
+        $this->assertEquals(
+            350, Amount::sum(
+                [
+                100, // Raw values will be converted to amounts of default currency
+                $this->amount(200),
+                $this->amount(50),
+                ]
+            )->get()
+        );
     }
 
     public function test_it_can_sum_an_multidimensional_array_containing_amounts_using_a_key()
     {
-        $sum = Amount::sum([
+        $sum = Amount::sum(
+            [
             ['amount' => $this->amount(200)],
             ['amount' => $this->amount(50)],
-        ], 'amount');
+            ], 'amount'
+        );
 
         $this->assertEquals(250, $sum->get());
     }
 
     public function test_it_can_sum_an_multidimensional_array_containing_amounts_using_a_callback()
     {
-        $sum = Amount::sum([
+        $sum = Amount::sum(
+            [
             ['amount' => $this->amount(200)],
             ['amount' => $this->amount(50)],
-        ], function ($item) {
-            return $item['amount'];
-        });
+            ], function ($item) {
+                return $item['amount'];
+            }
+        );
 
         $this->assertEquals(250, $sum->get());
     }
 
     public function test_it_uses_the_currency_from_the_first_none_null_value_when_summing()
     {
-        $sum = Amount::sum([
+        $sum = Amount::sum(
+            [
             null,
             $this->amount(50, Currency::fromCode('DKK')),
             $this->amount(100, Currency::fromCode('EUR')),
-        ]);
+            ]
+        );
 
         $this->assertEquals(800, $sum->get());
         $this->assertEquals('DKK', $sum->currency()->getCode());

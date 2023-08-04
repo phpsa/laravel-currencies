@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Helpers;
+namespace Phpsa\LaravelCurrencies\Helpers;
 
 trait ValidatesArrays
 {

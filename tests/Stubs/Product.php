@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests\Stubs;
+namespace Phpsa\LaravelCurrencies\Tests\Stubs;
 
 class Product extends \Illuminate\Database\Eloquent\Model
 {

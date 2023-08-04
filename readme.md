@@ -1,37 +1,24 @@
 # Laravel Currencies
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/makeabledk/laravel-currencies.svg?style=flat-square)](https://packagist.org/packages/makeabledk/laravel-currencies)
-[![Build Status](https://img.shields.io/github/workflow/status/makeabledk/laravel-currencies/Run%20tests?label=Tests)](https://github.com/makeabledk/laravel-currencies/actions)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/phpsa/laravel-currencies.svg?style=flat-square)](https://packagist.org/packages/phpsa/laravel-currencies)
+[![Build Status](https://img.shields.io/github/workflow/status/phpsa/laravel-currencies/Run%20tests?label=Tests)](https://github.com/phpsa/laravel-currencies/actions)
 [![StyleCI](https://styleci.io/repos/108846048/shield?branch=master)](https://styleci.io/repos/108846048)
 
 This package provides a convenient and powerful way of interacting with currencies and amounts in Laravel.
 
-
+This package was originally from: https://github.com/makeabledk/laravel-currencies
 ## Install
 
 You can install this package via composer:
 
 ``` bash
-composer require makeabledk/laravel-currencies
-```
-
-On Laravel versions < 5.5, you must include the service provider in you `config/app.php`:
-
-```php
-'providers' => [
-...
-    /*
-     * Package Service Providers...
-     */
-     
-    \Makeable\LaravelCurrencies\CurrenciesServiceProvider::class,
-]
+composer require phpsa/laravel-currencies
 ```
 
 After installation you mus publish and run migrations to create the `currencies` table
 
 ```bash
-php artisan vendor:publish --provider="Makeable\LaravelCurrencies\CurrenciesServiceProvider"
+php artisan vendor:publish --provider="Phpsa\LaravelCurrencies\CurrenciesServiceProvider"
 php artisan migrate
 ```
 
@@ -50,7 +37,7 @@ Create the following seeder and let it run on each deployment:
 
 class CurrencySeeder extends \Illuminate\Database\Seeder
 {
-    use \Makeable\ProductionSeeding\SyncStrategy;
+    use \Phpsa\ProductionSeeding\SyncStrategy;
 
     /**
      * @var array
@@ -63,7 +50,7 @@ class CurrencySeeder extends \Illuminate\Database\Seeder
             'code' => 'DKK',
             'exchange_rate' => 750
         ],
-        // ... 
+        // ...
     ];
 
     /**
@@ -71,7 +58,7 @@ class CurrencySeeder extends \Illuminate\Database\Seeder
      */
     public function run()
     {
-        $this->apply($this->currencies, \Makeable\LaravelCurrencies\Currency::class, 'code');
+        $this->apply($this->currencies, \Phpsa\LaravelCurrencies\Currency::class, 'code');
     }
 }
 ```
@@ -83,13 +70,13 @@ Now your database table should look something like this:
 | 1  | EUR  | 100.00        |
 | 2  | DKK  | 750.00        |
 
-Tip: Consider using [https://github.com/dwightwatson/rememberable]() to cache currencies and throttle database queries. 
+Tip: Consider using [https://github.com/dwightwatson/rememberable]() to cache currencies and throttle database queries.
 
 Tip: If you don't want to hardcode exchange rates, create a console-command that fetches and updates from an external service, and ommit the field from the seeder.
 
 ### Register base currency (required)
 
-The amount object requires a base currency that it uses to convert between currencies. 
+The amount object requires a base currency that it uses to convert between currencies.
 
 The exchange rates given for your currencies must all relate to the base currency.
 
@@ -97,15 +84,15 @@ Define it in your `AppServiceProvider@boot`:
 
 ```php
 public function boot() {
-    $this->app->singleton(\Makeable\LaravelCurrencies\Contracts\BaseCurrency::class, function () {
-        return \Makeable\LaravelCurrencies\Currency::fromCode('EUR');
+    $this->app->singleton(\Phpsa\LaravelCurrencies\Contracts\BaseCurrency::class, function () {
+        return \Phpsa\LaravelCurrencies\Currency::fromCode('EUR');
     });
 }
 ```
 
 ### Register default currency (optional)
 
-Additionally you have the option to define a default currency if this is not the same as your base-currency. 
+Additionally you have the option to define a default currency if this is not the same as your base-currency.
 
 You may want to have a global currency such as USD or EUR for your base-currency to perform conversions, meanwhile your application defaults to display a local currency.
 
@@ -113,12 +100,12 @@ This can be achieved by defining a default-currency in your `AppServiceProvider@
 
 ```php
 public function boot() {
-    // Define base currency 
+    // Define base currency
     // [...]
 
     // Define default currency
-    $this->app->singleton(\Makeable\LaravelCurrencies\Contracts\BaseCurrency::class, function () {
-        return \Makeable\LaravelCurrencies\Currency::fromCode('DKK');
+    $this->app->singleton(\Phpsa\LaravelCurrencies\Contracts\BaseCurrency::class, function () {
+        return \Phpsa\LaravelCurrencies\Currency::fromCode('DKK');
     });
 }
 ```
@@ -134,7 +121,7 @@ Amount::zero(); // 0 DKK
 Quickly create an amount
 ```php
 new Amount(100); // EUR since that's our default
-new Amount(100, Currency::fromCode('DKK')); 
+new Amount(100, Currency::fromCode('DKK'));
 new Amount(100, 'DKK'); // It automatically instantiates a currency instance given a currency-code
 ```
 
@@ -154,7 +141,7 @@ $amount->subtract(new Amount(375, 'DKK')); // 50 eur
 Imagine you have a Product eloquent model with a @getPriceAttribute() accessor that returns an Amount object, you can even do this:
 ```php
 $products = Product::all();
-$productsTotalSum = Amount::sum($products, 'price'); 
+$productsTotalSum = Amount::sum($products, 'price');
 ```
 
 Use the fluent modifiers for easy manipulation
@@ -197,6 +184,7 @@ We are happy to receive pull requests for additional functionality. Please see [
 ## Credits
 
 - [Rasmus Christoffer Nielsen](https://github.com/rasmuscnielsen)
+- https://github.com/makeabledk/laravel-currencies
 - [All Contributors](../../contributors)
 
 ## License

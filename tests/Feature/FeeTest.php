@@ -1,14 +1,16 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests\Feature;
+namespace Phpsa\LaravelCurrencies\Tests\Feature;
 
-use Makeable\LaravelCurrencies\Amount;
-use Makeable\LaravelCurrencies\Contracts\FeeContract;
-use Makeable\LaravelCurrencies\Tests\TestCase;
+use Phpsa\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\Contracts\FeeContract;
+use Phpsa\LaravelCurrencies\Tests\TestCase;
 
 class FeeTest extends TestCase
 {
-    /** @test **/
+    /**
+     * @test
+     **/
     public function it_can_add_and_subtract_fees_on_an_amount()
     {
         $danishVAT = new class implements FeeContract

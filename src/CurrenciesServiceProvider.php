@@ -1,9 +1,9 @@
 <?php
 
-namespace Makeable\LaravelCurrencies;
+namespace Phpsa\LaravelCurrencies;
 
 use Illuminate\Support\ServiceProvider;
-use Makeable\LaravelCurrencies\Rules\Amount as AmountRule;
+use Phpsa\LaravelCurrencies\Rules\Amount as AmountRule;
 
 class CurrenciesServiceProvider extends ServiceProvider
 {
@@ -17,13 +17,17 @@ class CurrenciesServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(__DIR__.'/../config/currencies.php', 'currencies');
 
-        $this->publishes([
+        $this->publishes(
+            [
             __DIR__.'/../config/currencies.php' => config_path('currencies.php'),
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-currencies'),
-        ]);
+            ]
+        );
 
-        $this->app['validator']->extend('amount', function ($attribute, $value, $parameters, $validator) {
-            return (new AmountRule)->passes($attribute, $value);
-        }, __('laravel-currencies::messages.amount'));
+        $this->app['validator']->extend(
+            'amount', function ($attribute, $value, $parameters, $validator) {
+                return (new AmountRule)->passes($attribute, $value);
+            }, __('laravel-currencies::messages.amount')
+        );
     }
 }

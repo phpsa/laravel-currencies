@@ -1,9 +1,9 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Concerns;
+namespace Phpsa\LaravelCurrencies\Concerns;
 
-use Makeable\LaravelCurrencies\Amount;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract as Currency;
+use Phpsa\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract as Currency;
 
 trait SerializesAmounts
 {
@@ -13,7 +13,7 @@ trait SerializesAmounts
     protected static $formatter;
 
     /**
-     * @param  callable  $formatter
+     * @param callable $formatter
      */
     public static function formatUsing(?callable $formatter)
     {
@@ -21,7 +21,7 @@ trait SerializesAmounts
     }
 
     /**
-     * @param  array  $exported
+     * @param  array $exported
      * @return Amount|null
      *
      * @throws \Exception
@@ -38,8 +38,8 @@ trait SerializesAmounts
     }
 
     /**
-     * @param $amount
-     * @param  Currency | mixed  $currency  null
+     * @param  $amount
+     * @param  Currency | mixed $currency null
      * @return static
      */
     public static function fromCents($amount, $currency = null)
@@ -50,6 +50,7 @@ trait SerializesAmounts
     /**
      * @return array
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->toArray();
@@ -61,8 +62,8 @@ trait SerializesAmounts
     public function toArray()
     {
         return [
-            'amount' => $this->get(),
-            'currency' => $this->currency()->getCode(),
+            'amount'    => $this->get(),
+            'currency'  => $this->currency()->getCode(),
             'formatted' => $this->toFormat(),
         ];
     }
@@ -76,7 +77,7 @@ trait SerializesAmounts
     }
 
     /**
-     * @param  callable|null  $formatter
+     * @param  callable|null $formatter
      * @return string
      */
     public function toFormat($formatter = null)

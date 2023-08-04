@@ -1,9 +1,9 @@
 <?php
 
-namespace Makeable\LaravelCurrencies;
+namespace Phpsa\LaravelCurrencies;
 
 use Illuminate\Database\Eloquent\Model;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract;
 
 class Currency extends Model implements CurrencyContract
 {
@@ -54,7 +54,7 @@ class Currency extends Model implements CurrencyContract
     }
 
     /**
-     * @param  string  $code
+     * @param  string $code
      * @return Currency|null
      */
     public static function fromCode($code)
@@ -69,7 +69,7 @@ class Currency extends Model implements CurrencyContract
     }
 
     /**
-     * @param  float  $amount
+     * @param  float $amount
      * @return Amount
      */
     public function amount($amount)

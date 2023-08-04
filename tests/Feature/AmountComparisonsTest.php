@@ -1,8 +1,8 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests\Feature;
+namespace Phpsa\LaravelCurrencies\Tests\Feature;
 
-use Makeable\LaravelCurrencies\Tests\TestCase;
+use Phpsa\LaravelCurrencies\Tests\TestCase;
 
 class AmountComparisonsTest extends TestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Makeable\LaravelCurrencies;
+namespace Phpsa\LaravelCurrencies;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Arr;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract;
-use Makeable\LaravelCurrencies\Contracts\ResolvesModelCurrency;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract;
+use Phpsa\LaravelCurrencies\Contracts\ResolvesModelCurrency;
 
 class AmountCast implements CastsAttributes
 {
@@ -17,8 +17,8 @@ class AmountCast implements CastsAttributes
     protected $nullable;
 
     /**
-     * @param  string  $amountField
-     * @param  string|null  $currencyField
+     * @param string      $amountField
+     * @param string|null $currencyField
      */
     public static function defaultStoredAs(string $amountField, ?string $currencyField = null)
     {
@@ -27,9 +27,9 @@ class AmountCast implements CastsAttributes
     }
 
     /**
-     * @param  null|string  $amountField
-     * @param  null|string  $currencyField
-     * @param  bool  $nullable
+     * @param null|string $amountField
+     * @param null|string $currencyField
+     * @param bool        $nullable
      */
     public function __construct($amountField = null, $currencyField = null, $nullable = null)
     {
@@ -41,11 +41,11 @@ class AmountCast implements CastsAttributes
     }
 
     /**
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  mixed  $value
-     * @param  array  $attributes
-     * @return \Makeable\LaravelCurrencies\Amount|mixed
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  string                              $key
+     * @param  mixed                               $value
+     * @param  array                               $attributes
+     * @return \Phpsa\LaravelCurrencies\Amount|mixed
      *
      * @throws \Exception
      */
@@ -61,10 +61,10 @@ class AmountCast implements CastsAttributes
     }
 
     /**
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $field
-     * @param  mixed  $value
-     * @param  array  $attributes
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  string                              $field
+     * @param  mixed                               $value
+     * @param  array                               $attributes
      * @return array|mixed
      *
      * @throws \Exception
@@ -103,9 +103,9 @@ class AmountCast implements CastsAttributes
     }
 
     /**
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $field
-     * @param  array  $attributes
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  string                              $field
+     * @param  array                               $attributes
      * @return CurrencyContract
      */
     protected function resolveModelCurrency($model, $field, $attributes): CurrencyContract

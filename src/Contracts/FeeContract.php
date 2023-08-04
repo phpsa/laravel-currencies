@@ -1,15 +1,15 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Contracts;
+namespace Phpsa\LaravelCurrencies\Contracts;
 
-use Makeable\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\Amount;
 
 interface FeeContract
 {
     /**
      * Get fee size on given amount.
      *
-     * @param  Amount  $amount
+     * @param  Amount $amount
      * @return mixed
      */
     public function get(Amount $amount);
@@ -17,7 +17,7 @@ interface FeeContract
     /**
      * Subtract fee from given amount.
      *
-     * @param  Amount  $amount
+     * @param  Amount $amount
      * @return mixed
      */
     public function subtract(Amount $amount);

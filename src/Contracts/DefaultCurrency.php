@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Contracts;
+namespace Phpsa\LaravelCurrencies\Contracts;
 
 interface DefaultCurrency
 {

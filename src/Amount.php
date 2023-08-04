@@ -1,22 +1,22 @@
 <?php
 
-namespace Makeable\LaravelCurrencies;
+namespace Phpsa\LaravelCurrencies;
 
 use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract as Currency;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract as Currency;
 
 class Amount implements Arrayable, Castable, JsonSerializable
 {
     use Helpers\RetrievesValues,
-        Helpers\ValidatesArrays,
-        Concerns\CalculatesAmounts,
-        Concerns\ComparesAmounts,
-        Concerns\ConvertsBetweenCurrencies,
-        Concerns\InteractsWithCurrencies,
-        Concerns\SerializesAmounts;
+    Helpers\ValidatesArrays,
+    Concerns\CalculatesAmounts,
+    Concerns\ComparesAmounts,
+    Concerns\ConvertsBetweenCurrencies,
+    Concerns\InteractsWithCurrencies,
+    Concerns\SerializesAmounts;
 
     /**
      * @var float
@@ -29,7 +29,7 @@ class Amount implements Arrayable, Castable, JsonSerializable
     protected $currency;
 
     /**
-     * @param  array  $arguments
+     * @param  array $arguments
      * @return \Illuminate\Contracts\Database\Eloquent\CastsAttributes|\Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes|string
      */
     public static function castUsing(array $arguments)
@@ -38,7 +38,7 @@ class Amount implements Arrayable, Castable, JsonSerializable
     }
 
     /**
-     * @param  mixed  $value
+     * @param  mixed $value
      * @param  null  $defaultCurrency
      * @return static|null
      *
@@ -62,7 +62,7 @@ class Amount implements Arrayable, Castable, JsonSerializable
     }
 
     /**
-     * @param  mixed  $amount
+     * @param  mixed $amount
      * @return static
      *
      * @throws \Exception
@@ -87,8 +87,8 @@ class Amount implements Arrayable, Castable, JsonSerializable
     /**
      * Amount constructor.
      *
-     * @param  float  $amount
-     * @param  CurrencyContract | mixed  $currency  null
+     * @param float                    $amount
+     * @param CurrencyContract | mixed $currency null
      *
      * @throws \Exception
      */
@@ -115,7 +115,7 @@ class Amount implements Arrayable, Castable, JsonSerializable
     }
 
     /**
-     * @param  null  $decimals
+     * @param  null $decimals
      * @return float
      */
     public function get($decimals = null)

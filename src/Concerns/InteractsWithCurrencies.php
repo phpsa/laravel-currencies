@@ -1,13 +1,13 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Concerns;
+namespace Phpsa\LaravelCurrencies\Concerns;
 
-use Makeable\LaravelCurrencies\Contracts\BaseCurrency;
-use Makeable\LaravelCurrencies\Contracts\CurrencyContract;
-use Makeable\LaravelCurrencies\Contracts\DefaultCurrency;
-use Makeable\LaravelCurrencies\Currency;
-use Makeable\LaravelCurrencies\Exceptions\InvalidCurrencyException;
-use Makeable\LaravelCurrencies\Exceptions\MissingBaseCurrencyException;
+use Phpsa\LaravelCurrencies\Contracts\BaseCurrency;
+use Phpsa\LaravelCurrencies\Contracts\CurrencyContract;
+use Phpsa\LaravelCurrencies\Contracts\DefaultCurrency;
+use Phpsa\LaravelCurrencies\Currency;
+use Phpsa\LaravelCurrencies\Exceptions\InvalidCurrencyException;
+use Phpsa\LaravelCurrencies\Exceptions\MissingBaseCurrencyException;
 
 trait InteractsWithCurrencies
 {
@@ -15,7 +15,7 @@ trait InteractsWithCurrencies
      * "Base currency" is the currency which other currencies exchange rates
      * map to. Base currency should always have a exchange rate of 100.
      *
-     * @param  CurrencyContract|string  $currency
+     * @param  CurrencyContract|string $currency
      * @return CurrencyContract
      */
     public static function setBaseCurrency($currency)
@@ -30,15 +30,19 @@ trait InteractsWithCurrencies
      * simply provide a 3-letter ISO code which is used to format
      * the monetary amount to to your users.
      *
-     * @param  string  $code
-     * @return \Makeable\LaravelCurrencies\Contracts\CurrencyContract|string
+     * @param  string $code
+     * @return \Phpsa\LaravelCurrencies\Contracts\CurrencyContract|string
      */
     public static function setSimpleBaseCurrency(string $code)
     {
-        return static::setBaseCurrency(new Currency([
-            'code' => $code,
-            'exchange_rate' => 100,
-        ]));
+        return static::setBaseCurrency(
+            new Currency(
+                [
+                'code' => $code,
+                'exchange_rate' => 100,
+                ]
+            )
+        );
     }
 
     /**
@@ -47,8 +51,8 @@ trait InteractsWithCurrencies
      * you wish to specify exchange rates relative to ie. USD or EUR
      * but your business is located elsewhere.
      *
-     * @param  CurrencyContract|string|null  $currency
-     * @return \Makeable\LaravelCurrencies\Currency
+     * @param  CurrencyContract|string|null $currency
+     * @return \Phpsa\LaravelCurrencies\Currency
      */
     public static function setDefaultCurrency($currency)
     {
@@ -68,11 +72,13 @@ trait InteractsWithCurrencies
      */
     public static function baseCurrency()
     {
-        return rescue(function () {
-            return static::ensureValidCurrency(app(BaseCurrency::class));
-        }, function () {
-            throw new MissingBaseCurrencyException();
-        }, false);
+        return rescue(
+            function () {
+                return static::ensureValidCurrency(app(BaseCurrency::class));
+            }, function () {
+                throw new MissingBaseCurrencyException();
+            }, false
+        );
     }
 
     /**
@@ -80,15 +86,17 @@ trait InteractsWithCurrencies
      */
     public static function defaultCurrency()
     {
-        return rescue(function () {
-            return static::ensureValidCurrency(app(DefaultCurrency::class));
-        }, function () {
-            return static::baseCurrency();
-        }, false);
+        return rescue(
+            function () {
+                return static::ensureValidCurrency(app(DefaultCurrency::class));
+            }, function () {
+                return static::baseCurrency();
+            }, false
+        );
     }
 
     /**
-     * @param  CurrencyContract|string  $currency
+     * @param  CurrencyContract|string $currency
      * @return CurrencyContract
      *
      * @throws InvalidCurrencyException
@@ -108,7 +116,7 @@ trait InteractsWithCurrencies
     }
 
     /**
-     * @param  mixed  $currency
+     * @param  mixed $currency
      * @return bool
      */
     protected static function validCurrency($currency)
@@ -119,7 +127,7 @@ trait InteractsWithCurrencies
     }
 
     /**
-     * @param  mixed  $currency
+     * @param  mixed $currency
      * @return CurrencyContract
      *
      * @throws InvalidCurrencyException

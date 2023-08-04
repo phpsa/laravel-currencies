@@ -1,8 +1,8 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests;
+namespace Phpsa\LaravelCurrencies\Tests;
 
-use Makeable\LaravelCurrencies\Currency;
+use Phpsa\LaravelCurrencies\Currency;
 use Sushi\Sushi;
 
 class TestCurrency extends Currency

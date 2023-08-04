@@ -1,11 +1,11 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Contracts;
+namespace Phpsa\LaravelCurrencies\Contracts;
 
 interface CurrencyContract
 {
     /**
-     * @param $code
+     * @param  $code
      * @return CurrencyContract
      */
     public static function fromCode($code);

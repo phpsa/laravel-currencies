@@ -1,47 +1,24 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests;
+namespace Phpsa\LaravelCurrencies\Tests;
 
 use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Support\Facades\Route;
-use Makeable\LaravelCurrencies\Amount;
-use Makeable\LaravelCurrencies\AmountCast;
-use Makeable\LaravelCurrencies\CurrenciesServiceProvider;
-use Makeable\LaravelCurrencies\Tests\Stubs\Product;
-use Makeable\LaravelCurrencies\Tests\Stubs\ProductController;
+use Phpsa\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\AmountCast;
+use Phpsa\LaravelCurrencies\CurrenciesServiceProvider;
+use Phpsa\LaravelCurrencies\Tests\Stubs\Product;
+use Phpsa\LaravelCurrencies\Tests\Stubs\ProductController;
 
-class TestCase extends \Illuminate\Foundation\Testing\TestCase
+class TestCase extends \Orchestra\Testbench\TestCase
 {
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
-    {
-        putenv('APP_ENV=testing');
-        putenv('APP_DEBUG=true');
-        putenv('CACHE_DRIVER=array');
-        putenv('DB_CONNECTION=sqlite');
-        putenv('DB_DATABASE=:memory:');
 
-        $app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
 
-        $app->useEnvironmentPath(__DIR__.'/..');
-        $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-        $app->register(CurrenciesServiceProvider::class);
-        $app->afterResolving('migrator', function (Migrator $migrator) {
-            $migrator->path(__DIR__.'/migrations/');
-        });
-
-        Route::post('products', ProductController::class);
-
-        return $app;
-    }
-
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
+
+        Route::post('products', ProductController::class);
 
         Amount::setBaseCurrency(TestCurrency::fromCode('EUR'));
         AmountCast::defaultStoredAs('%s');
@@ -49,9 +26,20 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
         ProductController::$rules = [];
     }
 
+    protected function getPackageProviders($app)
+    {
+        $app->afterResolving(
+            'migrator',
+            function (Migrator $migrator) {
+                $migrator->path(__DIR__.'/migrations/');
+            }
+        );
+        return [CurrenciesServiceProvider::class];
+    }
+
     /**
-     * @param $amount
-     * @param  null  $currency
+     * @param  $amount
+     * @param  null $currency
      * @return Amount
      *
      * @throws \Exception
@@ -62,13 +50,16 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
     }
 
     /**
-     * @param $abstract
+     * @param  $abstract
      * @return $this
      */
     protected function unsetContainer($abstract)
     {
-        app()->bind($abstract, function () {
-        });
+        app()->bind(
+            $abstract,
+            function () {
+            }
+        );
 
         return $this;
     }

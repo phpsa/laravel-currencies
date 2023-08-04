@@ -1,15 +1,15 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Concerns;
+namespace Phpsa\LaravelCurrencies\Concerns;
 
 use BadMethodCallException;
-use Makeable\LaravelCurrencies\Amount;
-use Makeable\LaravelCurrencies\Contracts\FeeContract;
+use Phpsa\LaravelCurrencies\Amount;
+use Phpsa\LaravelCurrencies\Contracts\FeeContract;
 
 trait CalculatesAmounts
 {
     /**
-     * @param  Amount | FeeContract  $amount
+     * @param  Amount | FeeContract $amount
      * @return Amount
      *
      * @throws \Throwable
@@ -29,7 +29,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param $factor
+     * @param  $factor
      * @return Amount
      */
     public function divide($factor)
@@ -41,7 +41,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param  Amount  $amount
+     * @param  Amount $amount
      * @return Amount
      */
     public function maximum(Amount $amount)
@@ -54,7 +54,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param  Amount  $amount
+     * @param  Amount $amount
      * @return Amount
      */
     public function minimum(Amount $amount)
@@ -67,7 +67,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param $factor
+     * @param  $factor
      * @return Amount
      */
     public function multiply($factor)
@@ -79,7 +79,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param $percentage
+     * @param  $percentage
      * @return Amount
      */
     public function percent($percentage)
@@ -91,7 +91,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param $decimals
+     * @param  $decimals
      * @return Amount
      */
     public function round($decimals)
@@ -103,7 +103,7 @@ trait CalculatesAmounts
     }
 
     /**
-     * @param  Amount | FeeContract  $amount
+     * @param  Amount | FeeContract $amount
      * @return Amount
      *
      * @throws \Throwable
@@ -125,8 +125,8 @@ trait CalculatesAmounts
     /**
      * Retrieve the sum of an array.
      *
-     * @param $items
-     * @param  null  $callback
+     * @param  $items
+     * @param  null $callback
      * @return Amount
      *
      * @throws \Exception

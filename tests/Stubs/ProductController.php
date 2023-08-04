@@ -1,6 +1,6 @@
 <?php
 
-namespace Makeable\LaravelCurrencies\Tests\Stubs;
+namespace Phpsa\LaravelCurrencies\Tests\Stubs;
 
 use Illuminate\Http\Request;
 
