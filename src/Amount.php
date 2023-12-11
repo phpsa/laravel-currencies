@@ -115,7 +115,7 @@ class Amount implements Arrayable, Castable, JsonSerializable
     }
 
     /**
-     * @param  null $decimals
+     * @param  ?int $decimals
      * @return float
      */
     public function get($decimals = null)
